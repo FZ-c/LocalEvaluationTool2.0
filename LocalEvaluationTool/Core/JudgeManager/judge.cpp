@@ -267,7 +267,7 @@ void CJudgeManager::printJudgeResult(SJudgeResult& result)
 			{
 				out += "Accepted ";
 				out += "[";
-				std::string timeStr = std::to_string((((long long)result.runTime * 100000) / 100.0));
+				std::string timeStr = std::to_string(((long long)(result.runTime * 100000) / 100.0));
 				out += timeStr.substr(0, timeStr.find('.') + 3);
 				out += " ms]  ";
 				outColor = COutput::enmCFC_Green;
@@ -332,7 +332,7 @@ void CJudgeManager::printJudgeResult(SJudgeResult& result)
 		if(passPointNum == result.pointNum)
 		{
 			out += "[";
-			std::string timeStr = std::to_string((((long long)result.runTime * 100000) / 100.0));
+			std::string timeStr = std::to_string(((long long)(result.runTime * 100000) / 100.0));
 			out += timeStr.substr(0, timeStr.find('.') + 3);
 			out += " ms]";
 			outColor = COutput::enmCFC_Green;
