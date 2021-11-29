@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="core\CommandManager\command.cpp">
+      <Filter>Core\CommandManager</Filter>
+    </ClCompile>
+    <ClCompile Include="core\FileManager\file.cpp">
+      <Filter>Core\FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="core\FileManager\project.cpp">
+      <Filter>Core\FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Global\Output.cpp">
+      <Filter>Core\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Global\util.cpp">
+      <Filter>Core\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="core\JudgeManager\judge.cpp">
+      <Filter>Core\JudgeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\Base\functionBaseManager.cpp">
+      <Filter>Functions\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\changeModeFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\flushFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\judgeFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\recheckFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\runFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\setFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\showFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions\helpFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{f8907dc2-a7f4-45b6-9a16-86f2afce9ea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\CommandManager">
+      <UniqueIdentifier>{4208257c-26ff-47f5-aa7d-3c0cebc96514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\FileManager">
+      <UniqueIdentifier>{28ce17e4-acba-4029-b507-db5b8d49c640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Global">
+      <UniqueIdentifier>{2b33b4dd-aeb7-4c3e-9e47-cfb218f645ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\JudgeManager">
+      <UniqueIdentifier>{b1e21b14-32ec-4c68-a5c0-edd3b0b2242a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions">
+      <UniqueIdentifier>{59a6f8ca-c109-4b36-8f32-de9e562d8e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions\Base">
+      <UniqueIdentifier>{10c9d556-ff91-48a0-9311-84d473a4c9e6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\CommandManager\command.h">
+      <Filter>Core\CommandManager</Filter>
+    </ClInclude>
+    <ClInclude Include="core\FileManager\file.h">
+      <Filter>Core\FileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="core\FileManager\project.h">
+      <Filter>Core\FileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Global\enum.h">
+      <Filter>Core\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Global\Output.h">
+      <Filter>Core\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Global\util.h">
+      <Filter>Core\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="core\JudgeManager\judge.h">
+      <Filter>Core\JudgeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\Base\functionBaseManager.h">
+      <Filter>Functions\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\changeModeFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\flushFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\judgeFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\recheckFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\runFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\setFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\showFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions\helpFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
