@@ -109,6 +109,16 @@ bool CRunFunction::runFuction()
 	{
 		dataFiles = project->getAllDataFiles();
 	}
+	if (codeFiles.empty())
+	{
+		COutput::OutputErrorMessage("不存在可运行的代码文件！\n");
+		return false;
+	}
+	if (dataFiles.empty())
+	{
+		COutput::OutputErrorMessage("不存在数据文件供运行！\n");
+		return false;
+	}
 	//执行运行
 	for (SeqFile::iterator codeIt = codeFiles.begin(); codeIt != codeFiles.end(); ++codeIt)
 	{

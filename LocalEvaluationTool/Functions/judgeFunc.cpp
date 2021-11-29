@@ -111,6 +111,16 @@ bool CJudgeFunction::runFuction()
 		dataFiles = project->getAllDataFiles();
 	}
 	//执行评测
+	if(codeFiles.empty())
+	{
+		COutput::OutputErrorMessage("不存在可评测的代码文件！\n");
+		return false;
+	}
+	if(dataFiles.empty())
+	{
+		COutput::OutputErrorMessage("不存在数据文件供评测！\n");
+		return false;
+	}
 	SeqSJudgeResult allJudgeResult;
 	for (SeqFile::iterator it = codeFiles.begin(); it != codeFiles.end(); ++it)
 	{
