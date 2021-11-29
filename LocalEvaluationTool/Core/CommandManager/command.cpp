@@ -1,14 +1,14 @@
 #include "command.h"
 
-#include "helpFunc.h"
-#include "showFunc.h"
 #include "Core/Global/Output.h"
 #include "Functions/changeModeFunc.h"
 #include "Functions/flushFunc.h"
+#include "Functions/helpFunc.h"
 #include "Functions/judgeFunc.h"
 #include "Functions/recheckFunc.h"
 #include "Functions/runFunc.h"
 #include "Functions/setFunc.h"
+#include "Functions/showFunc.h"
 
 CCommand::CCommand() :_project("")
 {
