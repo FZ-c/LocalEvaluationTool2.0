@@ -31,7 +31,7 @@ bool CHelpFunction::runFuction()
 	COutput::_OutputInf("recheck 重新检查必要组件\n");
 	COutput::_OutputInf("run [codeFile] [dataFile] 运行\n");
 	COutput::_OutputInf("changeMode [-ACM/-OI]更改评测模式\n");
-	COutput::_OutputInf("judge [codeFile] [inputFile outputFile] 测试\n");
+	COutput::_OutputInf("judge [-a] [codeFile] [inputFile outputFile] 测试\n");
 	COutput::_OutputInf("flush [-all/-code/-data] 刷新代码/数据文件\n");
 	COutput::_OutputInf("show [-all/-code/-data] 显示扫描到的文件\n");
 	return false;

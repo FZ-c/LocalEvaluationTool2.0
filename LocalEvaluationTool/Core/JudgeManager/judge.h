@@ -48,7 +48,7 @@ public:
 	~CJudgeManager() = default;
 
 	//判题
-	SJudgeResult JudgeCode(const CFile& codeFiles, const CProject::DataFileMapType& dataFiles);
+	SJudgeResult JudgeCode(const CFile& codeFiles, const CProject::DataFileMapType& dataFiles, bool isAll);
 
 	//运行代码
 	SJudgeResult runCode(const CFile& codeFile, const CFile& inputFile, std::string outputFile, bool needCompile = true, bool delExe = false, bool printErrorMessage = false);
@@ -68,6 +68,8 @@ private:
 	bool compareFile(std::string fileName1, std::string fileName2);
 
 	void printPointResult(SPointResult& result, int pointNumber);
+
+	void printProgressBar(SJudgeResult& result, bool hasNext = false);
 
 private:
 	EJudgeType _judgeMode;

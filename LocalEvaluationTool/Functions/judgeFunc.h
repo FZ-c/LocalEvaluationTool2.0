@@ -17,7 +17,9 @@ private:
 	CJudgeFunction();
 	~CJudgeFunction() = default;
 
-	int _sign;
+	bool _isAll;
+	bool _hasCode;
+	bool _hasData;
 	CFile _codeFile;
 	CProject::DataFileMapType _dataFiles;
 };

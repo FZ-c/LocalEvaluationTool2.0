@@ -10,6 +10,11 @@ CJudgeManager::CJudgeManager()
 	_judgeMode = EJudgeTypeACM;
 }
 
+void CJudgeManager::setJudgeMode(EJudgeType judgeType)
+{
+	_judgeMode = judgeType;
+}
+
 
 //编译成功返回true 否则返回false
 //如果编译失败，会存在文件log.txt在代码文件目录中
@@ -150,7 +155,7 @@ SJudgeResult CJudgeManager::runCode(const CFile& codeFile, const CFile& inputFil
 	return ret;
 }
 
-SJudgeResult CJudgeManager::JudgeCode(const CFile& codeFile, const CProject::DataFileMapType& dataFiles)
+SJudgeResult CJudgeManager::JudgeCode(const CFile& codeFile, const CProject::DataFileMapType& dataFiles, bool isAll)
 {
 	SJudgeResult ret;
 	if(_judgeMode == EJudgeNone)
@@ -176,7 +181,14 @@ SJudgeResult CJudgeManager::JudgeCode(const CFile& codeFile, const CProject::Dat
 		int pointNumber = 1;
 		for (CProject::DataFileMapType::const_iterator dataFileIt = dataFiles.begin(); dataFileIt != dataFiles.end(); ++dataFileIt)
 		{
-			COutput::OutputFleshMessage("正在判题: #" + std::to_string(pointNumber) + ":(" + dataFileIt->second.first.getAbsolutePath() + ")", COutput::enmCFC_Purple);
+			if(isAll)
+			{
+				COutput::OutputFleshMessage("正在判题: #" + std::to_string(pointNumber) + ":(" + dataFileIt->second.first.getAbsolutePath() + ")", COutput::enmCFC_Purple);
+			}
+			else
+			{
+				printProgressBar(ret, true);
+			}
 			SJudgeResult tmpResult = runCode(codeFile, dataFileIt->second.first, codeFile.getPath() + "a.txt", false, false, false);
 			SPointResult pointResult;
 			pointResult.inputFileName = dataFileIt->second.first.getAbsolutePath();
@@ -185,14 +197,26 @@ SJudgeResult CJudgeManager::JudgeCode(const CFile& codeFile, const CProject::Dat
 			pointResult.outputFileCheck = compareFile(dataFileIt->second.second.getAbsolutePath(), codeFile.getPath() + "a.txt");
 			ret.pointsResult.push_back(pointResult);
 			remove((codeFile.getPath() + "a.txt").c_str());
-			printPointResult(pointResult, pointNumber++);
 
-			if(_judgeMode == EJudgeTypeACM && (pointResult.successRun == false || pointResult.outputFileCheck == false))
+			if (isAll || (isAll == false && _judgeMode == EJudgeTypeOI && (pointResult.successRun == false || pointResult.outputFileCheck == false)))
+			{
+				printPointResult(pointResult, pointNumber);
+			}
+
+			if (_judgeMode == EJudgeTypeACM && (pointResult.successRun == false || pointResult.outputFileCheck == false))
 			{
 				break;
 			}
+
+			pointNumber++;
+
 		}
 		remove((codeFile.getFileName() + ".exe").c_str());
+	}
+	if(!isAll)
+	{
+		printProgressBar(ret, false);
+		COutput::_OutputInf("\n");
 	}
 	printJudgeResult(ret);
 	return ret;
@@ -341,7 +365,62 @@ void CJudgeManager::printJudgeResult(SJudgeResult& result)
 	COutput::_OutputInf(out + "\n", outColor);
 }
 
-void CJudgeManager::setJudgeMode(EJudgeType judgeType)
+void CJudgeManager::printProgressBar(SJudgeResult& result, bool hasNext)
 {
-	_judgeMode = judgeType;
+	if (result.pointNum > 100) return;
+	COutput::OutputFleshMessage("[");
+	int printPointNum = 0;
+	int pointW = 100 / result.pointNum;
+	std::string printStr;
+	for (int i = 0; i < pointW; i++)
+	{
+		printStr += "█";
+	}
+	int totalW = 0;
+	for (SeqSPointResult::iterator it = result.pointsResult.begin(); ; ++it)
+	{
+		printPointNum++;
+		int printW = pointW;
+		std::string outStr = printStr;
+		if (pointW + totalW < printPointNum * 100 / result.pointNum)
+		{
+			printW += (printPointNum * 100 / result.pointNum) - pointW - totalW;
+			for (int i = pointW + 1; i <= printW; i++)
+			{
+				outStr += "█";
+			}
+		}
+		COutput::ConsoleForegroundColor outColor = COutput::enmCFC_Green;
+		if (it == result.pointsResult.end())
+		{
+			if (hasNext)
+			{
+				outColor = COutput::enmCFC_Yellow;
+			}
+			else
+			{
+				break;
+			}
+		}
+		else
+		{
+			if (it->successRun == false)
+			{
+				outColor = COutput::enmCFC_Purple;
+			}
+			else if (it->outputFileCheck == false)
+			{
+				outColor = COutput::enmCFC_Red;
+			}
+		}
+		totalW += printW;
+		COutput::_OutputInf(outStr, outColor);
+		if (it == result.pointsResult.end()) break;
+	}
+	if(totalW < 100)
+	{
+		COutput::_OutputInf(std::string(100 - totalW, ' '));
+	}
+	COutput::_OutputInf("] " + std::to_string(result.pointsResult.size() * 100 / result.pointNum) + "%");
 }
+

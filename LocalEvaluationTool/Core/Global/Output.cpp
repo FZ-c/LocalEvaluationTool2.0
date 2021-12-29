@@ -27,6 +27,7 @@ void COutput::OutputMessage(std::string s) {
 }
 
 void COutput::OutputFleshMessage(std::string s, int ForeGroundColor/* = enmCFC_White */ , int BackGroundColor/* = enmCBC_Black */ ) {
-	_OutputInf("\r" + std::string(100, ' '));
+	COORD info = GetLargestConsoleWindowSize(GetStdHandle(STD_OUTPUT_HANDLE));
+	_OutputInf("\r" + std::string(info.X - 1, ' '));
 	_OutputInf("\r" + s, ForeGroundColor, BackGroundColor);
 }
