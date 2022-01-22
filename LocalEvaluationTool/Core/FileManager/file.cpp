@@ -8,7 +8,7 @@ CFile::CFile()
 	_type = CUtil::calFileTypeValue(EFileTypeError);
 }
 
-CFile::CFile(std::string fileName)
+CFile::CFile(const std::string& fileName)
 {
 	_type = CUtil::calFileTypeValue(EFileTypeError);
 	initFileInf(fileName);

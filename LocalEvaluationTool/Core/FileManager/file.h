@@ -11,7 +11,7 @@
 class CFile
 {
 public:
-	CFile(std::string fileName);
+	CFile(const std::string& fileName);
 	CFile();
 	~CFile() = default;
 

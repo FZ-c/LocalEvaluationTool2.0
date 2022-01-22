@@ -39,7 +39,7 @@ bool CJudgeManager::compile(const CFile& codeFile)
 }
 
 //比较两个文件的异同
-bool CJudgeManager::compareFile(std::string fileName1, std::string fileName2)
+bool CJudgeManager::compareFile(const std::string& fileName1, const std::string& fileName2)
 {
 	system(static_cast<std::string>("fc " + fileName1 + " " + fileName2 + " 1> ret.ret").c_str());
 	std::ifstream ifs("ret.ret");

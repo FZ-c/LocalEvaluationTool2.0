@@ -34,7 +34,7 @@ void CUtil::removeBlank(std::string& str)
 		str.pop_back();
 	}
 	//去掉前面的空格
-	while(str[pos] == ' ' && pos < str.size())
+	while (pos < str.size() && str[pos] == ' ')
 	{
 		pos++;
 	}

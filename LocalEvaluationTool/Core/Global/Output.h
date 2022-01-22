@@ -38,13 +38,13 @@ public:
 
 
 	//输出信息
-	static void _OutputInf(std::string s, int ForeGroundColor = enmCFC_White, int BackGroundColor = enmCBC_Black);
+	static void _OutputInf(const std::string& s, int ForeGroundColor = enmCFC_White, int BackGroundColor = enmCBC_Black);
 
 	//输出报错信息
 	static void OutputErrorMessage(std::string s);
 
 	//输出警告信息
-	static void OutputWarningMessage(std::string s);
+	static void OutputWarningMessage(const std::string& s);
 
 	//输出成功信息
 	static void OutputSuccessMessage(std::string s);
@@ -53,6 +53,6 @@ public:
 	static void OutputMessage(std::string s);
 
 	//输出刷新信息
-	static void OutputFleshMessage(std::string s, int ForeGroundColor = enmCFC_White, int BackGroundColor = enmCBC_Black);
+	static void OutputFleshMessage(const std::string& s, int ForeGroundColor = enmCFC_White, int BackGroundColor = enmCBC_Black);
 };
 

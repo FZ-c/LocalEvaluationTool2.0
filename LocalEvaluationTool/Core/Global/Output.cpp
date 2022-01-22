@@ -1,7 +1,7 @@
 #include "Output.h"
 
 //输出信息
-void COutput::_OutputInf(std::string s, int ForeGroundColor/* = enmCFC_White*/, int BackGroundColor/* = enmCBC_Black*/) {
+void COutput::_OutputInf(const std::string& s, int ForeGroundColor/* = enmCFC_White*/, int BackGroundColor/* = enmCBC_Black*/) {
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(handle, ForeGroundColor | BackGroundColor);
 	std::cout << s;
@@ -13,7 +13,7 @@ void COutput::OutputErrorMessage(std::string s) {
 }
 
 
-void COutput::OutputWarningMessage(std::string s) {
+void COutput::OutputWarningMessage(const std::string& s) {
 	_OutputInf("警告: " + s, enmCFC_Yellow);
 }
 
@@ -26,7 +26,7 @@ void COutput::OutputMessage(std::string s) {
 	_OutputInf("提示: " + s);
 }
 
-void COutput::OutputFleshMessage(std::string s, int ForeGroundColor/* = enmCFC_White */ , int BackGroundColor/* = enmCBC_Black */ ) {
+void COutput::OutputFleshMessage(const std::string& s, int ForeGroundColor/* = enmCFC_White */ , int BackGroundColor/* = enmCBC_Black */ ) {
 	COORD info = GetLargestConsoleWindowSize(GetStdHandle(STD_OUTPUT_HANDLE));
 	_OutputInf("\r" + std::string(info.X - 1, ' '));
 	_OutputInf("\r" + s, ForeGroundColor, BackGroundColor);

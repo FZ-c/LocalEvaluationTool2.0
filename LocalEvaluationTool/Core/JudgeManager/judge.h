@@ -65,7 +65,7 @@ private:
 	bool compile(const CFile& codeFile);
 
 	//比较两个文件的异同
-	bool compareFile(std::string fileName1, std::string fileName2);
+	bool compareFile(const std::string& fileName1, const std::string& fileName2);
 
 	void printPointResult(SPointResult& result, int pointNumber);
 
