@@ -13,7 +13,7 @@ public:
 
 	const std::string& getExePath() const { return _exePath; }
 
-	void runCommand(std::string command);
+	void runCommand(const std::string& command);
 
 	bool getGppActiveSign() { return _isGppActive; }
 

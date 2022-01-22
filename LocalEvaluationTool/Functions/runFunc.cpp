@@ -123,7 +123,7 @@ bool CRunFunction::runFuction()
 	for (SeqFile::iterator codeIt = codeFiles.begin(); codeIt != codeFiles.end(); ++codeIt)
 	{
 		//先编译，编译过了再运行
-		if(getJudgeManager()->compileCodeFile(*codeIt,true) == true)
+		if(judge->compileCodeFile(*codeIt,true) == true)
 		{
 			//创建对应的文件夹
 			std::string retPath = getProject()->getPath() + codeIt->getFileName() + "\\";
@@ -135,7 +135,7 @@ bool CRunFunction::runFuction()
 					" (" + std::to_string(pointNum) + "/" + std::to_string(dataFiles.size()) + ")", 
 					COutput::enmCFC_Cyan);
 				std::string outFilePath = retPath + dataIt->second.first.getFileName() + ".out";
-				getJudgeManager()->runCode(*codeIt, dataIt->second.first, outFilePath, false, pointNum++ == dataFiles.size(), true);
+				judge->runCode(*codeIt, dataIt->second.first, outFilePath, false, pointNum++ == dataFiles.size(), true);
 			}
 			COutput::OutputFleshMessage(codeIt->getAbsolutePath() + " 执行完毕！输出文件位置：" + retPath + "\n",COutput::enmCFC_Green);
 		}

@@ -18,10 +18,7 @@ bool CFile::checkFileExist(std::string fileName, bool printErr/* = false*/) {
 	struct stat buffer;
 	if (stat(fileName.c_str(), &buffer) != 0 && printErr)
 	{
-		if (printErr)
-		{
-			COutput::OutputErrorMessage("文件 " + fileName + " 不存在!\n");
-		}
+		COutput::OutputErrorMessage("文件 " + fileName + " 不存在!\n");
 		return false;
 	}
 	return true;

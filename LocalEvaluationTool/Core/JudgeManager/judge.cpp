@@ -5,9 +5,8 @@
 #include <fstream>
 
 
-CJudgeManager::CJudgeManager()
+CJudgeManager::CJudgeManager() :_judgeMode(EJudgeTypeACM)
 {
-	_judgeMode = EJudgeTypeACM;
 }
 
 void CJudgeManager::setJudgeMode(EJudgeType judgeType)
@@ -109,7 +108,7 @@ bool CJudgeManager::compileCodeFile(const CFile& codeFile, bool printErrorMessag
 	}
 }
 
-SJudgeResult CJudgeManager::runCode(const CFile& codeFile, const CFile& inputFile, std::string outputFile, bool needCompile/* = true*/, bool delExe/* = false*/, bool printErrorMessage/* = false*/)
+SJudgeResult CJudgeManager::runCode(const CFile& codeFile, const CFile& inputFile, const std::string& outputFile, bool needCompile/* = true*/, bool delExe/* = false*/, bool printErrorMessage/* = false*/)
 {
 	SJudgeResult ret;
 	if (needCompile == false)

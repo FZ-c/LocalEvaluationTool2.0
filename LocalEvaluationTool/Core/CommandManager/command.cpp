@@ -62,7 +62,7 @@ void CCommand::getCmdParam()
 	}
 }
 
-void CCommand::runCommand(std::string command)
+void CCommand::runCommand(const std::string& command)
 {
 	_cmd = command;
 	//²ğ½âÃüÁî

@@ -51,7 +51,7 @@ public:
 	SJudgeResult JudgeCode(const CFile& codeFiles, const CProject::DataFileMapType& dataFiles, bool isAll);
 
 	//‘À––¥˙¬Î
-	SJudgeResult runCode(const CFile& codeFile, const CFile& inputFile, std::string outputFile, bool needCompile = true, bool delExe = false, bool printErrorMessage = false);
+	SJudgeResult runCode(const CFile& codeFile, const CFile& inputFile, const std::string& outputFile, bool needCompile = true, bool delExe = false, bool printErrorMessage = false);
 	
 	//±‡“Î
 	bool compileCodeFile(const CFile& codeFile, bool printErrorMessage = false);

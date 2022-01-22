@@ -8,7 +8,7 @@ void COutput::_OutputInf(const std::string& s, int ForeGroundColor/* = enmCFC_Wh
 	SetConsoleTextAttribute(handle, enmCFC_White | enmCBC_Black);
 }
 
-void COutput::OutputErrorMessage(std::string s) {
+void COutput::OutputErrorMessage(const std::string& s) {
 	_OutputInf("¥ÌŒÛ: " + s, enmCFC_Red);
 }
 
@@ -18,11 +18,11 @@ void COutput::OutputWarningMessage(const std::string& s) {
 }
 
 
-void COutput::OutputSuccessMessage(std::string s) {
+void COutput::OutputSuccessMessage(const std::string& s) {
 	_OutputInf(s, enmCFC_Green);
 }
 
-void COutput::OutputMessage(std::string s) {
+void COutput::OutputMessage(const std::string& s) {
 	_OutputInf("Ã· æ: " + s);
 }
 

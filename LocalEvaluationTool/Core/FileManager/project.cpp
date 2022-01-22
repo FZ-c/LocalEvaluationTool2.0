@@ -2,9 +2,8 @@
 #include "file.h"
 #include "Core/Global/Output.h"
 
-CProject::CProject(std::string path)
+CProject::CProject(std::string path) :_path(path)
 {
-	_path = path;
 	if (path.empty())
 	{
 		_isActive = false;
@@ -129,7 +128,7 @@ bool CProject::checkDataFileActive(std::string fileName)
 	return _dataFiles.find(name) != _dataFiles.end();
 }
 
-CFile CProject::getCodeFile(std::string fileName)
+CFile CProject::getCodeFile(const std::string& fileName)
 {
 	for (SeqFile::iterator it = _codeFiles.begin(); it != _codeFiles.end(); ++it)
 	{

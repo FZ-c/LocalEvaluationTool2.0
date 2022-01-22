@@ -55,7 +55,7 @@ public:
 
 	//获取代码文件
 	const SeqFile& getAllCodeFiles() const { return _codeFiles; }
-	CFile getCodeFile(std::string fileName);
+	CFile getCodeFile(const std::string& fileName);
 
 	//重新扫描文件
 	void researchFiles(bool codeFile = false, bool dataFile = false);
