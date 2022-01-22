@@ -1,5 +1,7 @@
 ## LocalEvaluationTool2.0
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/77c9e9eb4f054fd2ac833987a0e83ab2)](https://www.codacy.com/gh/FZ-c/LocalEvaluationTool2.0/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FZ-c/LocalEvaluationTool2.0&amp;utm_campaign=Badge_Grade)
+
 This is a **没啥卵用的** 的本地评测姬。
 
 1.0写得太丑所以重构了一个2.0出来~
