@@ -2,10 +2,9 @@
 
 #include "Core/Global/Output.h"
 
-CChangeModeFunction::CChangeModeFunction()
+CChangeModeFunction::CChangeModeFunction() :_judgeType(EJudgeNone)
 {
 	_functionName = "changeMode";
-	_judgeType = EJudgeNone;
 }
 
 CChangeModeFunction* CChangeModeFunction::instance()
